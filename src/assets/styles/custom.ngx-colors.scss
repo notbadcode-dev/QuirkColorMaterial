@@ -1,0 +1,9 @@
+#ngx-colors-overlay {
+    ::ng-deep ngx-colors-panel {
+        .opened {
+            box-shadow: none !important;
+            border: 1px solid rgba(0,0,0,.05) !important;
+            box-sizing: inherit !important;
+        }
+    }
+}

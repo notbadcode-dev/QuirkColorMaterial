@@ -1,0 +1,77 @@
+<div id="breadcrumb">
+
+    <ng-container [ngSwitch]="globalData.getCurrentParentView()">
+        <ng-container *ngSwitchCase="availableParentViews.list">
+        
+            <div class="list-container">
+
+                <div class="button-content">
+                    <button mat-stroked-button
+                        #tooltip="matTooltip"
+                        matTooltip="View all Palettes"
+                        matTooltipPosition="below"
+                        aria-label="All palettes"
+                        [ngClass]="{'active': globalData.getCurrentView() === availableViews.allList}"
+                        (click)="globalUtil.navegateTo('list/all'); globalData.setCurrentView(availableViews.allList)">
+                        <mat-icon>apps</mat-icon>
+                        <span>All</span>
+                    </button>
+                </div>
+            
+                <div class="button-content">
+                    <button mat-stroked-button
+                        #tooltip="matTooltip"
+                        matTooltip="View famous Palettes"
+                        matTooltipPosition="below"
+                        aria-label="Famous palettes"
+                        [ngClass]="{'active': globalData.getCurrentView() === availableViews.famousList}"
+                        (click)="globalUtil.navegateTo('list/famous'); globalData.setCurrentView(availableViews.famousList)">
+                        <mat-icon>verified</mat-icon>
+                        <span>Famous</span>
+                    </button>
+                </div>
+            
+                <div class="button-content">
+                    <button mat-stroked-button
+                        #tooltip="matTooltip"
+                        matTooltip="View you liked Palettes"
+                        matTooltipPosition="below"
+                        aria-label="Likes palettes"
+                        [ngClass]="{'active': globalData.getCurrentView() === availableViews.likesList}"
+                        [disabled]="disabledLikedList()"
+                        (click)="globalUtil.navegateTo('list/liked'); globalData.setCurrentView(availableViews.likesList)">
+                        <mat-icon>favorite</mat-icon>
+                        <span>You liked!</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </ng-container>
+        <ng-container *ngSwitchCase="availableParentViews.palette">
+            
+            <div class="palette-container">
+
+                <div class="button-content">
+                    <button mat-stroked-button
+                        #tooltip="matTooltip"
+                        matTooltip="View you liked Palettes"
+                        matTooltipPosition="below"
+                        aria-label="Likes palettes"
+                        (click)="navegatoToLastView()">
+                        <mat-icon>navigate_before</mat-icon>
+                        Return to List
+                    </button>
+                </div>
+    
+                <div class="title">
+                    View Palette
+                </div>
+
+            </div>
+
+        </ng-container>
+        <ng-container *ngSwitchDefault></ng-container>
+    </ng-container>
+</div>
+

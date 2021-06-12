@@ -1,0 +1,24 @@
+$primary-gradient-20: rgba(255, 154, 168, .2);
+$primary-color: #ff9a9e;
+$secondary-color: #ff7378;
+$like-color: #C9234B;
+$primary-color-gradient: (
+    10: rgba(255, 154, 168, .1),
+    20: rgba(255, 154, 168, .2),
+    30: rgba(255, 154, 168, .3),
+    40: rgba(255, 154, 168, .4),
+    50: rgba(255, 154, 168, .5),
+    60: rgba(255, 154, 168, .6),
+    70: rgba(255, 154, 168, .7),
+    80: rgba(255, 154, 168, .8),
+    90: rgba(255, 154, 168, .9),
+);
+
+$background-color: #fbfbfb;
+$background-item-color: #fafbfc;
+$inactive-color: #899bb4;
+$disabled-color-gradient: (
+    _border-color: rgba(0,0,0,.05), // border-color
+    _background-color: rgba(0,0,0,.08), // background-color
+    _color: rgba(0,0,0,.12), // color
+);

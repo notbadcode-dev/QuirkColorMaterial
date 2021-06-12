@@ -1,0 +1,43 @@
+<div class="pagination-container">
+
+    <button mat-stroked-button
+        *ngIf="false"
+        class="last"
+        #tooltip="matTooltip"
+        matTooltip="Last to Page"
+        matTooltipPosition="left"
+        aria-label="Back"
+        [disabled]="pagination.currentPage === 1"
+        (click)="changePage(1)">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    
+    <ng-container *ngFor="let pageNumber of pagination.pagesNumber">
+
+        <button mat-stroked-button *ngIf="showPage(pageNumber)"
+            class="pages"
+            [ngClass]="{'active': pagination.currentPage === pageNumber}"
+            #tooltip="matTooltip"
+            matTooltip="Load 10 palettes  on page {{ pageNumber }}"
+            matTooltipPosition="above"
+            [attr.aria-label]="'Page' + pageNumber"
+            [disabled]="disabledPageButton(pageNumber)"
+            (click)="changePage(pageNumber)">
+            {{ showPagenumber(pageNumber) }}
+        </button>
+
+    </ng-container>
+
+    <button mat-stroked-button
+        *ngIf="false"
+        class="forward"
+        #tooltip="matTooltip"
+        matTooltip="Next to Page"
+        matTooltipPosition="right"
+        matTooltipPosit="Next"
+        [disabled]="pagination.currentPage === pagination.totalPages"
+        (click)="changePage(pagination.totalPages)">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+
+</div>

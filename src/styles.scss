@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    background-color: #FBFBFB;
+    // background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 40%, #fad0c4 100%);
+}
+
+@media screen and (max-width: 321px) {
+    body {
+        display: list-item;
+    }
+}
+
+@import './assets/styles/custom.notify.scss';
+@import './assets/styles/variables.scss';
+@import './assets//styles/custom.ngx-colors.scss'

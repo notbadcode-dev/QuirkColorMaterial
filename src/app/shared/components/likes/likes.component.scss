@@ -1,0 +1,80 @@
+@import '../../../../assets/styles/variables.scss';
+
+button {
+    line-height: 35px;
+    padding: 0 8px;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .1s;
+    box-sizing: border-box;
+    text-align: center;
+    color: $inactive-color;
+    background-color: #fff;
+    // border: 1px solid map-get($primary-color-gradient, 20);
+    box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .2);
+    border: none;
+    font-size: 14px;
+    position: relative;
+
+    transition: all .1s;
+
+    .mat-icon {
+        font-size: 1.2em !important;
+        position: relative;
+        top: 4px;
+        color: $inactive-color;
+        animation-name: heart;
+        animation-duration: .7s;
+        animation-delay: .6s;
+        animation-fill-mode: backwards;
+    }
+
+    span {
+        margin-left: 4px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: map-get($primary-color-gradient, 30);
+        color: $like-color;
+
+        .mat-icon {
+            color: $like-color;
+        }
+    }
+
+    &.liked {
+        cursor: pointer;
+        background-color: map-get($primary-color-gradient, 30);
+        color: $like-color;;
+
+        .mat-icon {
+            color: $like-color;;
+            // animation-name: liked;
+            // animation-duration: .4s;
+            // animation-delay: .1s;
+            // animation-fill-mode: backwards;
+        }
+    }
+}
+
+@keyframes heart {
+    0% {
+        transform: scale(0)
+    }
+
+    50% {
+        transform: scale(1.4)
+    }
+}
+
+@keyframes liked {
+    0% {
+        transform: scale(0)
+    }
+
+    50% {
+        transform: scale(1.4)
+    }
+}

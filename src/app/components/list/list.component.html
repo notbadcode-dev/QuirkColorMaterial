@@ -1,0 +1,52 @@
+<div class="feed"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    [scrollWindow]="true"
+    (scrolled)="onScroll()">
+
+    <ng-container *ngFor="let palette of infiniteScrollItems; let i = index">
+
+        <div class="item" [attr.style]="'animation-delay:' + (i + 10) * 30+'ms;'"
+            (click)="viewPalette(palette)">
+
+            <div class="palette">
+
+                <ng-container *ngFor="let color of palette.colours; let j = index">
+
+                    <div class="colour c{{ 5 - (j + 1) }} t{{palette.colours.length}}" [attr.style]="'background:' + color"></div>
+
+                </ng-container>
+                
+
+            </div>
+
+            <div class="footer">
+
+                <ng-container *ngIf="palette.isFamous; else notFamousList">
+                    <div class="title">
+                        <span> {{ palette.title }} </span>
+                    </div>
+                </ng-container>
+                <ng-template #notFamousList>
+                    <app-likes [palette]="palette"> </app-likes>
+                </ng-template>
+
+                <span class="since"> {{ palette.since }} </span>
+            
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</div>
+
+<!-- <div class="pagination" *ngIf="pagination.items.length > 0 && pagination.items.length < pagination.totalItems">
+
+    <app-pagination
+        [_pagination]="pagination"
+        (_changePage)="getPalettePagination($event)">
+    </app-pagination>
+    
+</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            -->

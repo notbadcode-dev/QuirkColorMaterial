@@ -1,0 +1,10 @@
+<button id="{{ palette._id }}"
+    [ngClass]="{'liked': palette.liked}"
+    #tooltip="matTooltip"
+    matTooltip="I Liked!"
+    matTooltipPosition="left"
+    aria-label="I liked a Palette!"
+    (click)="likePalette($event)">
+    <mat-icon>favorite</mat-icon>
+    <span class="likes"> {{ palette.likes }} </span>
+</button>

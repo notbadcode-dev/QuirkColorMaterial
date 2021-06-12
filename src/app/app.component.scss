@@ -1,0 +1,189 @@
+@import '../assets/styles/variables.scss';
+
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: transparent;
+    color: $secondary-color;
+    font-weight: 600;
+
+    img {
+        margin: 0 16px;
+    }
+
+    span {
+        font-size: 1.2em;
+        margin-left: 24px;
+        padding: 4px 12px;
+        color: $background-color;
+
+        &.gradient-border {
+            --borderWidth: 2px;
+            background: transparent;
+            position: relative;
+            border-radius: var(--borderWidth);
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: calc(-1 * var(--borderWidth));
+                left: calc(-1 * var(--borderWidth));
+                height: calc(100% + var(--borderWidth) * 2);
+                width: calc(100% + var(--borderWidth) * 2);
+                background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+                border-radius: calc(2 * var(--borderWidth));
+                z-index: -1;
+                animation: animatedgradient 3s ease alternate infinite;
+                background-size: 300% 300%;
+              }
+          }
+    }
+
+    .spacer {
+        flex: 1;
+    }
+
+    .links {
+        margin: 4px calc(5% + 2px) 0 0;
+        cursor: pointer;
+    }
+
+    svg {
+        fill: $secondary-color;
+    }
+    
+    #linkdin-logo {
+        height: 32px;
+    }
+
+    #github-logo {
+        height: 32px;
+    }
+
+    #website-logo {
+        height: 32px;
+    }
+
+    #about-logo {
+        height: 32px;
+    }
+
+    #linkdin-logo,
+    #github-logo,
+    #website-logo,
+    #about-logo {
+        margin: 0 .6em;
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+
+.content {
+    position: absolute;
+    top: 6em;
+    width: -webkit-fill-available;
+
+    .float {
+		position: fixed;
+        bottom: 64px;
+        right: 32px;
+		display: inline-grid;
+
+		.btn-float {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .mat-mini-fab {
+                color: $secondary-color;
+                background-color: #fff;
+                border-radius: 50px;
+                border-color: rgba(0, 64, 128, .2);
+                text-align: center;
+                box-shadow: 0px 10px 30px 0px rgba(0, 64, 128, .2);
+                cursor: pointer;
+                width: 56px;
+                height: 56px;
+
+                &:disabled {
+                    opacity: .3;
+                    color: $inactive-color;
+                    background: $background-item-color;
+                    cursor: initial;
+                }
+            }
+
+			&:not(:last-child) {
+				margin-bottom: 32px;
+			}
+		}
+	}
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    div {
+        display: flex;
+        align-items: center;
+        font-size: 1.4;
+        color: $inactive-color;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-bottom: 1em;
+
+        mat-icon {
+            color: $like-color;
+            font-size: 1.2;
+            margin: 0 8px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .content {
+        .float {
+            .btn-float:not(:disabled) {
+                &:hover {
+                    color: $inactive-color;
+                    background-color: $background-item-color;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .toolbar {
+        span {
+            font-size: 1em;
+        }
+    }
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+
+  }

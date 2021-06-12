@@ -1,0 +1,112 @@
+@import '../../../../assets/styles/variables.scss';
+
+#breadcrumb {
+
+    // min-width: 500px;
+    padding: 0 25%;
+
+    .list-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .palette-container {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .button-content {
+
+        flex-grow: 1;
+        text-align: center;
+
+        ::ng-deep .mat-stroked-button {
+            .mat-button-wrapper {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                padding-top: .8em;
+
+                .mat-icon {
+                    font-size: 32px;
+                    height: 32px;
+                    width: 32px;
+                }
+
+                span {
+                    letter-spacing: 1px;
+                }
+            }
+        }
+
+        button {
+            align-self: baseline;
+
+            margin: 0 1em;
+            color: $primary-color;
+            border-color: $primary-color;
+            min-width: 10em;
+            width: 10em;
+
+            background-color: #fff;
+            border-color: map-get($primary-color-gradient, 20);
+            text-align: center;
+            box-shadow: 40px 10px 80px 0px map-get($primary-color-gradient, 20);
+            cursor: pointer;
+
+            position: relative;
+            top: 0;
+            transition: top ease-in-out .3s;
+
+            &.active {
+                background-color: map-get($primary-color-gradient, 30);
+                box-shadow: none;
+                cursor: inherit;
+                // top: -16px;
+
+                &:hover {
+                    background-color: map-get($primary-color-gradient, 30);
+                }
+            }
+
+            &:not(.active) {
+                &:hover {
+                    background-color: map-get($primary-color-gradient, 10);
+                    top: -16px;
+                }
+            }
+
+            &:disabled {
+                color: map-get($disabled-color-gradient, _color);
+                border-color: map-get($disabled-color-gradient, _border-color);
+                background-color: map-get($disabled-color-gradient, _background-color)
+            }
+        }
+    }
+
+    .title {
+        flex-grow: 4;
+        align-self: center;
+        color: $primary-color;
+        font-size: 1.2em;
+        margin-left: 3em;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #breadcrumb  {
+        padding: 0;
+
+        .list-container {
+            .button-content {
+                button {
+                    margin: 0 .6em;
+                    min-width: 8em;
+                    width: 8em;
+                    font-size: .8em;
+                }
+            }
+        }
+    }
+}

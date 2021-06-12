@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="item" *ngIf="palette !== undefined">
+
+        <div class="palette">
+    
+            <ng-container *ngFor="let color of palette.colours; let j = index">
+    
+                <div class="colour c{{ 5 - (j + 1) }} t{{ palette.colours.length }}" [attr.style]="'background:' + color"></div>
+    
+            </ng-container>
+            
+        </div>
+    
+        <div class="footer" [attr.data-modeCreation]="creationMode">
+
+            <ng-container *ngIf="palette.isFamous; else notFamousPalette">
+                <div class="title" *ngIf="globalData.getCurrentView()">
+                    <span> {{ palette.title }} </span>
+                </div>
+            </ng-container>
+            <ng-template #notFamousPalette>
+                <ng-container *ngIf="!creationMode">
+
+                    <app-likes [palette]="palette"></app-likes>
+
+                </ng-container>
+            </ng-template>
+
+            <span *ngIf="!creationMode" class="since"> Since · {{ palette.since }} </span>
+        
+        </div>
+    
+    </div>
+
+    <div class="list-colors" *ngIf="palette && palette.colours">
+
+        <ng-container *ngFor="let color of palette.colours; let i = index">
+            
+            <div class="c{{ i + 1 }} t{{palette.colours.length}}" [attr.data-modeCreation]="creationMode">
+                <ngx-colors
+                    ngx-colors-trigger
+                    [(ngModel)]="palette.colours[palette.colours.length - (i + 1)]"
+                    [hideTextInput]="true" >
+                </ngx-colors>
+
+                <label class="code"> {{ color }} </label>
+            </div>
+
+        </ng-container>
+        
+
+    </div>
+
+</div>

@@ -1,0 +1,110 @@
+<div class="list-container">
+
+    <div class="button-content">
+        <button mat-stroked-button
+            #tooltip="matTooltip"
+            matTooltip="View all Palettes"
+            matTooltipPosition="below"
+            aria-label="All palettes"
+            [ngClass]="{'active': activeListView === availableViews.allList}"
+            (click)="globalUtilService.navegateTo('list/all')">
+            <mat-icon>apps</mat-icon>
+            <span>All</span>
+        </button>
+    </div>
+
+    <div class="button-content">
+        <button mat-stroked-button
+            #tooltip="matTooltip"
+            matTooltip="View famous Palettes"
+            matTooltipPosition="below"
+            aria-label="Famous palettes"
+            [ngClass]="{'active': activeListView === availableViews.famousList}"
+            (click)="globalUtilService.navegateTo('list/famous')">
+            <mat-icon>verified</mat-icon>
+            <span>Famous</span>
+        </button>
+    </div>
+
+    <div class="button-content">
+        <button mat-stroked-button
+            #tooltip="matTooltip"
+            matTooltip="View you liked Palettes"
+            matTooltipPosition="below"
+            aria-label="Likes palettes"
+            [ngClass]="{'active': activeListView === availableViews.likesList}"
+            [disabled]="disabledLikedList()"
+            (click)="globalUtilService.navegateTo('list/liked')">
+            <mat-icon>favorite</mat-icon>
+            <span>You liked!</span>
+        </button>
+    </div>
+
+</div>
+
+<div class="feed"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    [scrollWindow]="true"
+    (scrolled)="onScroll()">
+
+    <ng-container *ngFor="let palette of infiniteScrollItems; let i = index">
+
+        <div class="item" [attr.style]="'animation-delay:' + (i + 10) * 30+'ms;'"
+            (click)="viewPalette(palette)">
+
+            <div class="palette">
+
+                <ng-container *ngFor="let color of palette.colours; let j = index">
+
+                    <div class="colour c{{ 5 - (j + 1) }} t{{palette.colours.length}}" [attr.style]="'background:' + color"></div>
+
+                </ng-container>
+                
+
+            </div>
+
+            <div class="footer">
+
+                <ng-container *ngIf="palette.isFamous; else notFamousList">
+                    <div class="title">
+                        <span> {{ palette.title }} </span>
+                    </div>
+                </ng-container>
+                <ng-template #notFamousList>
+                    <app-likes [palette]="palette"> </app-likes>
+                </ng-template>
+
+                <span class="since"> {{ palette.since }} </span>
+            
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</div>
+
+<div class="float">
+    <div class="btn-float">
+      <button mat-mini-fab 
+        #tooltip="matTooltip"
+        matTooltip="Reload collections"
+        matTooltipPosition="left"
+        aria-label="Reload collections"
+        (click)="refreshList()">
+        <mat-icon>sync</mat-icon>
+      </button>
+    </div>
+    <div class="btn-float" *ngIf="false">
+      <button mat-mini-fab
+          #tooltip="matTooltip"
+          matTooltip="Add new palette"
+          matTooltipPosition="left"
+          aria-label="Add new palette"
+          (click)="navegateToAdd()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>

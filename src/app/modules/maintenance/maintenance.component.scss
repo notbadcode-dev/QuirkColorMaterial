@@ -1,0 +1,466 @@
+@import '../../../assets/styles/variables.scss';
+
+.palette-container {
+    padding: 0 25%;
+
+    padding: 0 25%;
+    display: flex;
+    justify-content: center;
+
+    .button-content {
+        ::ng-deep .mat-stroked-button {
+            .mat-button-wrapper {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                padding-top: .8em;
+
+                .mat-icon {
+                    font-size: 32px;
+                    height: 32px;
+                    width: 32px;
+                }
+
+                span {
+                    letter-spacing: 1px;
+                }
+            }
+        }
+
+        button {
+            align-self: baseline;
+
+            margin: 0 1em;
+            color: $primary-color;
+            border-color: $primary-color;
+            min-width: 10em;
+            width: 10em;
+
+            background-color: #fff;
+            border-color: map-get($primary-color-gradient, 20);
+            text-align: center;
+            box-shadow: 40px 10px 80px 0px map-get($primary-color-gradient, 20);
+            cursor: pointer;
+
+            position: relative;
+            top: 0;
+            transition: top ease-in-out .3s;
+
+            &.active {
+                background-color: map-get($primary-color-gradient, 30);
+                box-shadow: none;
+                cursor: inherit;
+
+                &:hover {
+                    background-color: map-get($primary-color-gradient, 30);
+                }
+            }
+
+            &:not(.active) {
+                &:hover {
+                    background-color: map-get($primary-color-gradient, 10);
+                    top: -16px;
+                }
+            }
+
+            &:disabled {
+                color: map-get($disabled-color-gradient, _color);
+                border-color: map-get($disabled-color-gradient, _border-color);
+                background-color: map-get($disabled-color-gradient, _background-color)
+            }
+        }
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+
+    .item {
+        width: 24em;
+        margin: .8em .4em;
+        border-radius: 8px;
+        padding: 1.2em;
+        box-sizing: border-box;
+        
+        text-align: left;
+        box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .3);
+        background-color: #fff;
+    
+        animation-name: item;
+        animation-duration: .2s;
+        animation-fill-mode: backwards;
+    
+        .palette {
+            max-width: 100%;
+            padding-bottom: 100%;
+            position: relative;
+            display: block;
+            height: 3em;
+    
+            .colour {
+                position: absolute;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+    
+                animation-name: colour;
+                transform-origin: top;
+                height: 22.9%;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+    
+                .colour-code {
+                    border-radius: 12px;
+                    font-size: 16px;
+                    letter-spacing: 4px;
+                    font-weight: 200;
+                    font-family: 'Quicksand', sans-serif;
+                    text-transform: uppercase;
+                    border: 1px solid #727272;
+                    color: #dee2e6;
+                    text-align: center;
+                    background-color: #dee2e6;
+                    opacity: .5;
+                    color: #000;
+                    padding: 2px;
+                    width: 80%;
+                }
+    
+                &.t4 {
+                    &.c1 {
+                        padding-bottom: 22%;
+                        border-radius: 8px 8px 0 0;
+                        border-bottom: 0;
+                        animation-duration: 1s;
+                    }
+    
+                    &.c2 {
+                        padding-bottom: 54%;
+                        border-radius: 8px 8px 0 0;
+                        border-top: 0;
+                        border-bottom: 0;
+                        animation-duration: .6s;
+                    }
+    
+                    &.c3 {
+                        padding-bottom: 80%;
+                        border-radius: 8px 8px 0 0;
+                        border-top: 0;
+                        border-bottom: 0;
+                        animation-duration: .2s;
+                    }
+    
+                    &.c4 {
+                        padding-bottom: 100%;
+                        border-radius: 8px;
+                        border-top: 0;
+                        animation-duration: 0s;
+                    }
+                }
+    
+                &.t3 {
+                    &.c2 {
+                        padding-bottom: 36%;
+                        border-radius: 8px 8px 0 0;
+                        border-bottom: 0;
+                        animation-duration: 1s;
+                    }
+    
+                    &.c3 {
+                        padding-bottom: 74%;
+                        border-radius: 8px 8px 0 0;
+                        border-top: 0;
+                        border-bottom: 0;
+                        animation-duration: .6s;
+                    }
+    
+                    &.c4 {
+                        padding-bottom: 100%;
+                        border-radius: 8px;
+                        border-top: 0;
+                        animation-duration: .2s;
+                    }
+                }
+    
+                &.t2 {
+                    &.c3 {
+                        padding-bottom: 40%;
+                        border-radius: 8px 8px 0 0;
+                        border-bottom: 0;
+                        animation-duration: 1s;
+                    }
+    
+                    &.c4 {
+                        padding-bottom: 100%;
+                        border-radius: 8px;
+                        border-top: 0;
+                        animation-duration: .6s;
+                    }
+                }
+    
+            }
+        }
+    
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 56px;
+
+            &[data-modecreation="true"] {
+                margin-top: 38px;
+            }
+    
+            button {
+                line-height: 35px;
+                padding: 0 12px;
+                display: inline-block;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: all .1s;
+                box-sizing: border-box;
+                text-align: center;
+                color: $inactive-color;
+                background-color: #fff;
+                border: 1px solid map-get($primary-color-gradient, 20);
+                font-size: 14px;
+                position: relative;
+    
+                transition: all .1s;
+    
+                .mat-icon {
+                    font-size: 1.2em !important;
+                    position: relative;
+                    top: 4px;
+                    color: $inactive-color;
+                    animation-name: heart;
+                    animation-duration: .7s;
+                    animation-delay: .6s;
+                    animation-fill-mode: backwards;
+                }
+    
+                span {
+                    margin-left: 4px;
+                }
+    
+                &:hover {
+                    cursor: pointer;
+                    background-color: map-get($primary-color-gradient, 30);
+                    color: $primary-color;
+    
+                    .mat-icon {
+                        color: $primary-color;
+                    }
+                }
+    
+                &.liked {
+                    cursor: pointer;
+                    background-color: map-get($primary-color-gradient, 30);
+                    color: $primary-color;
+    
+                    .mat-icon {
+                        color: $primary-color;
+                        animation-name: liked;
+                        animation-duration: .4s;
+                        animation-delay: .1s;
+                        animation-fill-mode: backwards;
+                    }
+                }
+            }
+    
+            .title { 
+                margin: 4px 0 6px 4px;
+                color: $inactive-color;
+                animation-name: fade;
+                animation-duration: .5s;
+                animation-fill-mode: backwards;
+            }
+    
+            .since {
+                margin-right: 8px;
+                font-size: 12px;
+                text-transform: capitalize;
+                color: $inactive-color;
+                animation-name: fade;
+                animation-duration: .3s;
+                animation-delay: .3s;
+                animation-fill-mode: backwards
+            }
+        }
+    
+        .collection-tags {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 4px;
+    
+            .tag {
+                margin-left: 10px;
+                color: $inactive-color;
+    
+                animation-name: fade;
+                animation-duration: .2s;
+                animation-fill-mode: backwards;
+    
+                &:hover {
+                    color: initial;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .list-colors {
+        margin: .8em .4em;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 2em;
+
+            animation-name: picker;
+
+            &.t4 {
+                &.c1 {
+                    position: relative;
+                    animation-delay: 1.6;
+                    animation-duration: 2.4s;
+                }
+
+                &.c2 {
+                    position: relative;
+                    animation-delay: 1;
+                    animation-duration: 2s;
+                }
+
+                &.c3 {
+                    position: relative;
+                    animation-delay: 0.6;
+                    animation-duration: 1.6s;
+                }
+
+                &.c4 {
+                    position: relative;
+                    animation-delay: 0.2;
+                    animation-duration: 1.2s;
+                }
+            }  
+
+            ::ng-deep ngx-colors {
+                .app-color-picker {
+                    .preview {
+                        box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .3) !important;
+                        border: 1px solid map-get($disabled-color-gradient, _border-color) !important;
+    
+                        .preview-background {
+                            .circle {
+                                height: 2em !important;
+                                width: 2em !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .code {
+                margin-left:10px;
+                line-height: 33px;
+                box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .3) !important;
+                border: 1px solid map-get($disabled-color-gradient, _border-color) !important;
+                border-radius: 24px;
+                padding: 0 16px;
+                background-color: #fff;
+                color: $inactive-color;
+                height: 32px;
+                font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+            }
+
+
+        }
+    }
+}
+
+#ngx-colors-overlay {
+    ::ng-deep ngx-colors-panel {
+        .opened {
+            box-shadow: none !important;
+            border: 1px solid rgba(0,0,0,.05) !important;
+            box-sizing: inherit !important;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .container {
+        justify-content: center;
+        
+        .item {
+            width: 16em;
+        }
+
+        .list-colors {
+            margin: .4em .2em;
+
+            div {
+                ::ng-deep ngx-colors {
+                    .app-color-picker {
+                        .preview {
+                            .preview-background {
+                                .circle {
+                                    height: 1.4em !important;
+                                    width: 1.4em !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .code {
+                    margin-left: 4px;
+                    padding: 0 8px;
+                    font-size: .8em;
+                    height: 32px;
+
+                }
+            }
+        }
+    }
+}
+
+@keyframes item {
+    0% {
+        opacity: 0;
+        transform: translateY(10px)
+    }
+}
+
+@keyframes colour {
+    0% {
+        transform: scaleY(1.22);
+    }
+}
+
+@keyframes picker {
+    0%   {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}

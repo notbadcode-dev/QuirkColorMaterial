@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Router} from '@angular/router';
-import { GlobalData } from './shared/global.data';
-import { EView } from './enum/enum.global';
-import {MatDialog} from '@angular/material/dialog';
+import { EView } from './shared/enum/enum.global';
+import { MatDialog } from '@angular/material/dialog';
 import { AboutComponent } from './shared/components/about/about.component';
 
 @Component({
@@ -17,22 +15,8 @@ export class AppComponent {
   lastView!: EView;
 
   constructor(
-    public globalData: GlobalData,
-    private router: Router,
     public dialog: MatDialog
     ) {
-      this.globalData.viewChange.subscribe((response: { currentView: EView, lastView: EView }) => {
-        this.currentView = response.currentView;
-        this.lastView = response.lastView;
-      });
-  }
-
-  navegateToAdd(): void {
-    this.router.navigate(['/maintenance/new']);
-  }
-
-  refreshList(): void {
-    this.globalData.relaodList.next(true);
   }
 
   openAboutDialog(): void {
@@ -40,7 +24,5 @@ export class AppComponent {
       hasBackdrop: true,
       position: { top: '50px' }
     });
-
-    //dialogRef.afterClosed().subscribe(result => {});
   }
 }

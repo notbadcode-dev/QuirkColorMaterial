@@ -9,17 +9,16 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
-import { ListModule } from './components/list/list.module';
-import { MaintenanceModule } from './components/maintenance/maintenance.module';
-
 import { ToastrModule } from 'ngx-toastr';
 
-import { HttpService } from './services/http/http.service';
+import { HttpService } from './shared/services/http/http.service';
 
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { NgxColorsModule } from 'ngx-colors';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NotFoundComponent } from './modules/not-found/not-found.component';
+
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -44,10 +43,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
       preventDuplicates: true,
       resetTimeoutOnDuplicate: true,
     }),
-    NgxColorsModule,
-    InfiniteScrollModule,
-    ListModule,
-    MaintenanceModule,
+
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
     SharedModule,
   ],
   exports: [],

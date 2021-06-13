@@ -46,32 +46,5 @@
 </div>
 
 <div class="content" role="main">
-  <app-breadcrumb></app-breadcrumb>
   <router-outlet></router-outlet>
-  <!-- <footer>
-    <div> Developed with <mat-icon>favorite</mat-icon> by notBadCode</div>
-  </footer> -->
-
-  <div class="float">
-    <div class="btn-float" *ngIf="globalData.hiddenRefresh()">
-      <button mat-mini-fab 
-        #tooltip="matTooltip"
-        matTooltip="Reload collections"
-        matTooltipPosition="above"
-        aria-label="Reload collections"
-        (click)="refreshList()">
-        <mat-icon>sync</mat-icon>
-      </button>
-    </div>
-    <div class="btn-float" *ngIf="false">
-      <button mat-mini-fab
-          #tooltip="matTooltip"
-          matTooltip="Add new palette"
-          matTooltipPosition="left"
-          aria-label="Add new palette"
-          (click)="navegateToAdd()">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
-  </div>
 </div>

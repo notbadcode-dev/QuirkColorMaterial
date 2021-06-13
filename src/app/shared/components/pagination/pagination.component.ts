@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PalettePaginate } from 'src/app/models/palette.model';
+import { PalettePaginate } from 'src/app/shared/models/palette.model';
 
 @Component({
   selector: 'app-pagination',
@@ -27,8 +27,6 @@ export class PaginationComponent implements OnInit {
     for (let index = 0; index < maxNumber; index++) {
       numbers.push(index + 1)
     }
-    // numbers.unshift(0);
-    // numbers.push(numbers[numbers.length - 1] + 1);
     return numbers;
   }
 

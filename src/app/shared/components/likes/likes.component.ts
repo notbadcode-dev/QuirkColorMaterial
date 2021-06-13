@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { EView } from 'src/app/enum/enum.global';
-import { Palette } from 'src/app/models/palette.model';
-import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { NotifyService } from 'src/app/services/notification/notify.service';
-import { PaletteService } from 'src/app/services/palette/palette.service';
-import { GlobalData } from 'src/app/shared/global.data';
+import { EView } from 'src/app/shared/enum/enum.global';
+import { Palette } from 'src/app/shared/models/palette.model';
+import { LocalStorageService } from 'src/app/shared/services/localStorage/local-storage.service';
+import { NotifyService } from 'src/app/shared/services/notification/notify.service';
+import { PaletteService } from 'src/app/shared/services/palette/palette.service';
 
 @Component({
   selector: 'app-likes',
@@ -19,8 +18,7 @@ export class LikesComponent implements OnInit {
   constructor(
     private localStorageService: LocalStorageService,
     private paletteService: PaletteService,
-    private notificationService: NotifyService,
-    public globalData: GlobalData) { }
+    private notificationService: NotifyService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +31,6 @@ export class LikesComponent implements OnInit {
           if (response._id === this.palette._id) {
             this.localStorageService.pushPaletteOnLikesIdList(this.palette._id);
             this.palette.likes = response.likes;
-            // this.pagination.items.filter(foundPalette => foundPalette._id === likePalette._id)[0].likes = response.likes;
             this.palette.liked = true;
           }
         }, error => { this.notificationService.message(error) });
@@ -43,22 +40,10 @@ export class LikesComponent implements OnInit {
           if (response._id === this.palette._id) {
             this.localStorageService.deletePaletteOnLikesIdList(this.palette._id);
             this.palette.likes = response.likes;
-            // this.pagination.items.filter(foundPalette => foundPalette._id === likePalette._id)[0].likes = response.likes;
             this.palette.liked = false;
 
-            if (this.globalData.getCurrentView() === EView.likesList) {
-              this.palette.likes = response.likes;
-              this.delete.emit(this.palette);
-              // this.pagination.items = this.pagination.items.filter(foundPalette => foundPalette._id !== likePalette._id);
-              // this.notificationService.info('Palette has been deleted because disliked');
-            }
-
-            // if (this.pagination.items.length === 0) {
-            //   this.globalData.setCurrentView(EView.allList);
-            //   this.getPalettePagination(1);
-            //   this.notificationService.info('Has no likes');
-            // }
-
+            this.palette.likes = response.likes;
+            this.delete.emit(this.palette);
           }
         }, error => { this.notificationService.message(error) });
     }

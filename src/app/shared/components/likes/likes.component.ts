@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EView } from 'src/app/shared/enum/enum.global';
 import { Palette } from 'src/app/shared/models/palette.model';
-import { LocalStorageService } from 'src/app/shared/services/localStorage/local-storage.service';
-import { NotifyService } from 'src/app/shared/services/notification/notify.service';
-import { PaletteService } from 'src/app/shared/services/palette/palette.service';
+import { LocalStorageService } from 'src/app/core/services/localStorage/local-storage.service';
+import { NotifyService } from 'src/app/core/services/notification/notify.service';
+import { PaletteService } from 'src/app/core/http-services/palette/palette.service';
 
 @Component({
   selector: 'app-likes',
@@ -48,5 +48,4 @@ export class LikesComponent implements OnInit {
         }, error => { this.notificationService.message(error) });
     }
   }
-
 }

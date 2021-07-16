@@ -9,9 +9,9 @@ button {
     transition: all .1s;
     box-sizing: border-box;
     text-align: center;
-    color: $inactive-color;
+    color: var(--inactive-color);
     background-color: #fff;
-    box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .2);
+    box-shadow: 0px 10px 30px 0px var(--primary-gradient-30);
     border: none;
     font-size: 14px;
     position: relative;
@@ -22,7 +22,7 @@ button {
         font-size: 1.2em !important;
         position: relative;
         top: 4px;
-        color: $inactive-color;
+        color: var(--inactive-color);
         animation-name: heart;
         animation-duration: .7s;
         animation-delay: .6s;
@@ -35,21 +35,21 @@ button {
 
     &:hover {
         cursor: pointer;
-        background-color: map-get($primary-color-gradient, 30);
-        color: $like-color;
+        background-color: var(--primary-gradient-30);
+        color: --like-color;
 
         .mat-icon {
-            color: $like-color;
+            color: --like-color;
         }
     }
 
     &.liked {
         cursor: pointer;
-        background-color: map-get($primary-color-gradient, 30);
-        color: $like-color;;
+        background-color: var(--primary-gradient-30);
+        color: --like-color;;
 
         .mat-icon {
-            color: $like-color;;
+            color: --like-color;;
 
         }
     }

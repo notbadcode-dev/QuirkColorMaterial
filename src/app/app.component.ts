@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { EView } from './shared/enum/enum.global';
 import { MatDialog } from '@angular/material/dialog';
-import { AboutComponent } from './shared/components/about/about.component';
+import { NavigationEnd, Router } from '@angular/router';
+import { AnalyticsService } from './core/services/analytics/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +16,14 @@ export class AppComponent {
   lastView!: EView;
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private analyticsService: AnalyticsService
     ) {
-  }
-
-  openAboutDialog(): void {
-    const dialogRef = this.dialog.open(AboutComponent, {
-      hasBackdrop: true,
-      position: { top: '50px' }
-    });
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          this.analyticsService.routeTraking(event);
+        }
+      });
   }
 }

@@ -1,24 +1,28 @@
-$primary-gradient-20: rgba(255, 154, 168, .2);
-$primary-color: #ff9a9e;
-$secondary-color: #ff7378;
-$like-color: #C9234B;
-$primary-color-gradient: (
-    10: rgba(255, 154, 168, .1),
-    20: rgba(255, 154, 168, .2),
-    30: rgba(255, 154, 168, .3),
-    40: rgba(255, 154, 168, .4),
-    50: rgba(255, 154, 168, .5),
-    60: rgba(255, 154, 168, .6),
-    70: rgba(255, 154, 168, .7),
-    80: rgba(255, 154, 168, .8),
-    90: rgba(255, 154, 168, .9),
-);
+:root {
+    --primary-color: #ff9a9e;
+    --primary-gradient-10: rgba(255, 154, 168, .1);
+    --primary-gradient-20: rgba(255, 154, 168, .2);
+    --primary-gradient-30: rgba(255, 154, 168, .3);
+    --primary-gradient-40: rgba(255, 154, 168, .4);
+    --primary-gradient-50: rgba(255, 154, 168, .5);
+    --primary-gradient-60: rgba(255, 154, 168, .6);
+    --primary-gradient-70: rgba(255, 154, 168, .7);
+    --primary-gradient-80: rgba(255, 154, 168, .8);
+    --primary-gradient-90: rgba(255, 154, 168, .9);
 
-$background-color: #fbfbfb;
-$background-item-color: #fafbfc;
-$inactive-color: #899bb4;
-$disabled-color-gradient: (
-    _border-color: rgba(0,0,0,.05),
-    _background-color: rgba(0,0,0,.08),
-    _color: rgba(0,0,0,.12),
-);
+    --secondary-color: #ff7378;
+
+    --like-color: #C9234B;
+
+    --background-color: #fbfbfb;
+    --background-item-color: #fafbfc;
+
+    --float-button-gradient: rgba(0, 64, 128, .2);
+
+    --mobile-brackdrop-brackground-color: rgba(255, 255, 255, 0.288);
+
+    --inactive-color: #899bb4;
+    --disabled-color-gradient: rgba(0,0,0,.12);
+    --disabled-color-gradient-boder: rgba(0,0,0,.05);
+    --disabled-color-gradient-background: rgba(0,0,0,.08);
+}

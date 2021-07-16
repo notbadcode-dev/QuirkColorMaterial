@@ -11,19 +11,19 @@ import { SharedModule } from './shared/shared.module';
 
 import { ToastrModule } from 'ngx-toastr';
 
-import { HttpService } from './shared/services/http/http.service';
+import { HttpService } from './core/http-services/http/http.service';
 
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './modules/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +43,12 @@ import { MatIconModule } from '@angular/material/icon';
       preventDuplicates: true,
       resetTimeoutOnDuplicate: true,
     }),
+    CoreModule,
+    SharedModule,
 
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    SharedModule,
   ],
   exports: [],
   providers: [HttpService],

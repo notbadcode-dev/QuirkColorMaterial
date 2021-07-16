@@ -6,13 +6,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { PaginationComponent } from './components/pagination/pagination.component';
 
-import { GlobalUtilService } from './services/global-util.service';
 import { LikesComponent } from './components/likes/likes.component';
 import { AboutComponent } from './components/about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
-const COMPONENTS: any[] = [PaginationComponent, LikesComponent, AboutComponent]
+const COMPONENTS: any[] = [PaginationComponent, LikesComponent, AboutComponent, NotFoundComponent, ToolbarComponent]
 
 const MAT_MODULES: any[] = [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, MatListModule]
 
@@ -23,7 +24,6 @@ const MAT_MODULES: any[] = [MatButtonModule, MatIconModule, MatTooltipModule, Ma
     MAT_MODULES
   ],
   exports: [ COMPONENTS ],
-  providers: [ GlobalUtilService ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class SharedModule { }

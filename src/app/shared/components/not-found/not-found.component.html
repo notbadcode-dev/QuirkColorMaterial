@@ -1,0 +1,18 @@
+<div>
+
+    <div class="gradient-border">
+        <p>404</p>
+        <p>PAGE NOT FOUND</p>
+    </div>
+
+    <button mat-stroked-button
+        #tooltip="matTooltip"
+        matTooltip="Return to palette list"
+        matTooltipPosition="below"
+        aria-label="Return"
+        (click)="globalUtilService.navegateTo('list/all')">
+    <mat-icon>arrow_back_ios</mat-icon>
+    <span>Return</span>
+</button>
+
+</div>

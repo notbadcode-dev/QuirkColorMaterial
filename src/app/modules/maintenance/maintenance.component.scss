@@ -1,5 +1,3 @@
-@import '../../../assets/styles/variables.scss';
-
 .palette-container {
     padding: 0 25%;
 
@@ -32,15 +30,15 @@
             align-self: baseline;
 
             margin: 0 1em;
-            color: $primary-color;
-            border-color: $primary-color;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
             min-width: 10em;
             width: 10em;
 
             background-color: #fff;
-            border-color: map-get($primary-color-gradient, 20);
+            border-color: var(--primary-gradient-20);
             text-align: center;
-            box-shadow: 40px 10px 80px 0px map-get($primary-color-gradient, 20);
+            box-shadow: 40px 10px 80px 0px var(--primary-gradient-20);
             cursor: pointer;
 
             position: relative;
@@ -48,26 +46,26 @@
             transition: top ease-in-out .3s;
 
             &.active {
-                background-color: map-get($primary-color-gradient, 30);
+                background-color: var(--primary-gradient-30);
                 box-shadow: none;
                 cursor: inherit;
 
                 &:hover {
-                    background-color: map-get($primary-color-gradient, 30);
+                    background-color: var(--primary-gradient-30);
                 }
             }
 
             &:not(.active) {
                 &:hover {
-                    background-color: map-get($primary-color-gradient, 10);
+                    background-color: var(--primary-gradient-10);
                     top: -16px;
                 }
             }
 
             &:disabled {
-                color: map-get($disabled-color-gradient, _color);
-                border-color: map-get($disabled-color-gradient, _border-color);
-                background-color: map-get($disabled-color-gradient, _background-color)
+                color: var(--disabled-color-gradient);
+                border-color: var(--disabled-color-gradient-border);
+                background: var(--disabled-color-gradient-background);
             }
         }
     }
@@ -226,9 +224,9 @@
                 transition: all .1s;
                 box-sizing: border-box;
                 text-align: center;
-                color: $inactive-color;
+                color: var(--inactive-color);
                 background-color: #fff;
-                border: 1px solid map-get($primary-color-gradient, 20);
+                border: 1px solid var(--primary-gradient-20);
                 font-size: 14px;
                 position: relative;
     
@@ -238,7 +236,7 @@
                     font-size: 1.2em !important;
                     position: relative;
                     top: 4px;
-                    color: $inactive-color;
+                    color: var(--inactive-color);
                     animation-name: heart;
                     animation-duration: .7s;
                     animation-delay: .6s;
@@ -251,21 +249,21 @@
     
                 &:hover {
                     cursor: pointer;
-                    background-color: map-get($primary-color-gradient, 30);
-                    color: $primary-color;
+                    background-color: var(--primary-gradient-30);
+                    color: var(--primary-color);
     
                     .mat-icon {
-                        color: $primary-color;
+                        color: var(--primary-color);
                     }
                 }
     
                 &.liked {
                     cursor: pointer;
-                    background-color: map-get($primary-color-gradient, 30);
-                    color: $primary-color;
+                    background-color: var(--primary-gradient-30);
+                    color: var(--primary-color);
     
                     .mat-icon {
-                        color: $primary-color;
+                        color: var(--primary-color);
                         animation-name: liked;
                         animation-duration: .4s;
                         animation-delay: .1s;
@@ -276,7 +274,7 @@
     
             .title { 
                 margin: 4px 0 6px 4px;
-                color: $inactive-color;
+                color: var(--inactive-color);
                 animation-name: fade;
                 animation-duration: .5s;
                 animation-fill-mode: backwards;
@@ -286,7 +284,7 @@
                 margin-right: 8px;
                 font-size: 12px;
                 text-transform: capitalize;
-                color: $inactive-color;
+                color: var(--inactive-color);
                 animation-name: fade;
                 animation-duration: .3s;
                 animation-delay: .3s;
@@ -303,7 +301,7 @@
     
             .tag {
                 margin-left: 10px;
-                color: $inactive-color;
+                color: var(--inactive-color);
     
                 animation-name: fade;
                 animation-duration: .2s;
@@ -359,8 +357,8 @@
             ::ng-deep ngx-colors {
                 .app-color-picker {
                     .preview {
-                        box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .3) !important;
-                        border: 1px solid map-get($disabled-color-gradient, _border-color) !important;
+                        box-shadow: 0px 10px 30px 0px var(--primary-gradient-30) !important;
+                        border: 1px solid var(--disabled-color-gradient-border) !important;
     
                         .preview-background {
                             .circle {
@@ -375,12 +373,12 @@
             .code {
                 margin-left:10px;
                 line-height: 33px;
-                box-shadow: 0px 10px 30px 0px rgba(255, 154, 168, .3) !important;
-                border: 1px solid map-get($disabled-color-gradient, _border-color) !important;
+                box-shadow: 0px 10px 30px 0px var(--primary-gradient-30) !important;
+                border: 1px solid --disabled-color-gradient-border !important;
                 border-radius: 24px;
                 padding: 0 16px;
                 background-color: #fff;
-                color: $inactive-color;
+                color: var(--inactive-color);
                 height: 32px;
                 font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
             }

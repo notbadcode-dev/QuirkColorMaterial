@@ -1,4 +1,4 @@
-import { GlobalUtilService } from "../services/global-util.service";
+import { GlobalUtilService } from "../../core/services/global-util.service";
 
 export class Palette {
     constructor(

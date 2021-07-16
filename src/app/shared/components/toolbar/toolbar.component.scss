@@ -1,0 +1,91 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-weight: 600;
+
+    img {
+        margin: 0 16px;
+    }
+
+    span {
+        font-size: 1.2em;
+        margin-left: 24px;
+        padding: 4px 12px;
+        color: var(--background-color);
+
+        &.gradient-border {
+            --borderWidth: 2px;
+            background: transparent;
+            position: relative;
+            border-radius: var(--borderWidth);
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: calc(-1 * var(--borderWidth));
+                left: calc(-1 * var(--borderWidth));
+                height: calc(100% + var(--borderWidth) * 2);
+                width: calc(100% + var(--borderWidth) * 2);
+                background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+                border-radius: calc(2 * var(--borderWidth));
+                z-index: -1;
+                animation: animatedgradient 3s ease alternate infinite;
+                background-size: 300% 300%;
+              }
+          }
+    }
+
+    .spacer {
+        flex: 1;
+    }
+
+    .links {
+        margin: 4px calc(5% + 2px) 0 0;
+        cursor: pointer;
+    }
+
+    svg {
+        fill: var(--secondary-color);
+    }
+    
+    #linkdin-logo {
+        height: 32px;
+    }
+
+    #github-logo {
+        height: 32px;
+    }
+
+    #website-logo {
+        height: 32px;
+    }
+
+    #about-logo {
+        height: 32px;
+    }
+
+    #linkdin-logo,
+    #github-logo,
+    #website-logo,
+    #about-logo {
+        margin: 0 .6em;
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        .toolbar {
+            .toolbar {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: inherit;
+            }
+        }
+    }
+}

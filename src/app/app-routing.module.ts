@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { NotFoundComponent } from './modules/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Route[] = [
   { path: '', redirectTo: 'list/all', pathMatch: 'full' },

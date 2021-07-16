@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Palette, PalettePaginate, PalettePaginateHelper } from 'src/app/shared/models/palette.model';
-import { NotifyService } from 'src/app/shared/services/notification/notify.service';
-import { PaletteService } from 'src/app/shared/services/palette/palette.service';
+import { NotifyService } from 'src/app/core/services/notification/notify.service';
+import { PaletteService } from 'src/app/core/http-services/palette/palette.service';
 import { EView } from 'src/app/shared/enum/enum.global';
-import { GlobalUtilService } from 'src/app/shared/services/global-util.service';
-import { LocalStorageService } from 'src/app/shared/services/localStorage/local-storage.service';
+import { GlobalUtilService } from 'src/app/core/services/global-util.service';
+import { LocalStorageService } from 'src/app/core/services/localStorage/local-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

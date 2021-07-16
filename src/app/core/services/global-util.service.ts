@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { EParentView, EView as EView } from "../enum/enum.global";
+import { EParentView, EView as EView } from "../../shared/enum/enum.global";
 
 import * as dayjs from 'dayjs';
 import * as isToday from 'dayjs/plugin/isToday';

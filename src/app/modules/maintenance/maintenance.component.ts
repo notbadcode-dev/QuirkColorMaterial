@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Palette, PaletteHelper } from 'src/app/shared/models/palette.model';
-import { LocalStorageService } from 'src/app/shared/services/localStorage/local-storage.service';
-import { NotifyService } from 'src/app/shared/services/notification/notify.service';
-import { PaletteService } from 'src/app/shared/services/palette/palette.service';
+import { LocalStorageService } from 'src/app/core/services/localStorage/local-storage.service';
+import { NotifyService } from 'src/app/core/services/notification/notify.service';
+import { PaletteService } from 'src/app/core/http-services/palette/palette.service';
 
 @Component({
   selector: 'app-maintenance',

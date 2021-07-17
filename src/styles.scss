@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import './assets/styles/variables.scss';
+@import './assets/styles/custom.notify.scss';
+@import './assets/styles/custom.ngx-colors.scss';
 
 
 html, body { height: 100%; }
@@ -14,6 +16,3 @@ body {
         display: list-item;
     }
 }
-
-// @import './assets/styles/custom.notify.scss';
-// @import './assets/styles/custom.ngx-colors.scss'

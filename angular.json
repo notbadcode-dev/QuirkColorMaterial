@@ -101,8 +101,6 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/assets/styles/custom.notify.scss",
-              "src/assets/styles/custom.ngx-colors.scss",
               "src/styles.scss"
             ],
             "scripts": []

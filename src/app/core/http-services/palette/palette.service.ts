@@ -23,7 +23,7 @@ export class PaletteService {
     getLikesWithPaginate: `${environment.api}/app-colors/palettes/likes/paginate`,
     addLiked: `${environment.api}/app-colors/palettes/addLiked`,
     substractLiked: `${environment.api}/app-colors/palettes/substractLiked`,
-}
+  }
 
   constructor(private _httpService: HttpService) { }
 
